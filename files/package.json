@@ -1,0 +1,21 @@
+
+
+{
+  "name": "ledgerport-playwright-tests",
+  "version": "1.0.0",
+  "description": "Playwright E2E tests for the LedgerPort WordPress plugin",
+  "scripts": {
+    "test": "npx playwright test",
+    "test:dashboard": "npx playwright test dashboard",
+    "dashboard": "npx playwright test dashboard",
+    "test:app:dashboard": "npx playwright test dashboard",
+    "test:disconnected": "npx playwright test disconnected-state",
+    "disconnected": "npx playwright test disconnected-state",
+    "test:headed": "npx playwright test --headed",
+    "test:ui": "npx playwright test --ui",
+    "report": "npx playwright show-report"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.44.0"
+  }
+}

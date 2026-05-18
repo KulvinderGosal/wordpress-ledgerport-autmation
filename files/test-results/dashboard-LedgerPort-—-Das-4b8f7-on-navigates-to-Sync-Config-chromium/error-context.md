@@ -1,0 +1,611 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: dashboard.spec.ts >> LedgerPort — Dashboard >> "Manage settings" button navigates to Sync Config
+- Location: tests/dashboard.spec.ts:281:7
+
+# Error details
+
+```
+Test timeout of 60000ms exceeded while running "beforeEach" hook.
+```
+
+```
+TimeoutError: page.goto: Timeout 30000ms exceeded.
+Call log:
+  - navigating to "https://qastaging.pushengage.com/wp-admin/admin.php?page=ledgerport", waiting until "load"
+
+```
+
+# Page snapshot
+
+```yaml
+- generic [ref=e2]:
+  - navigation "Main menu":
+    - link "Skip to main content" [ref=e3] [cursor=pointer]:
+      - /url: "#wpbody-content"
+    - link "Skip to toolbar" [ref=e4] [cursor=pointer]:
+      - /url: "#wp-toolbar"
+    - list [ref=e7]:
+      - listitem [ref=e8]:
+        - link "Dashboard" [ref=e9] [cursor=pointer]:
+          - /url: index.php
+          - generic [ref=e10]: 
+          - generic [ref=e11]: Dashboard
+        - list [ref=e12]:
+          - listitem [ref=e13]:
+            - link "Home" [ref=e14] [cursor=pointer]:
+              - /url: index.php
+          - listitem [ref=e15]:
+            - link "Updates 1" [ref=e16] [cursor=pointer]:
+              - /url: update-core.php
+              - text: Updates
+              - generic [ref=e17]: "1"
+      - listitem [ref=e18]:
+        - link "LedgerPort WooCommerce Sync" [ref=e19] [cursor=pointer]:
+          - /url: admin.php?page=ledgerport
+          - generic [ref=e21]:
+            - text: LedgerPort
+            - text: WooCommerce Sync
+        - list [ref=e22]:
+          - listitem [ref=e23]:
+            - link "Dashboard" [ref=e24] [cursor=pointer]:
+              - /url: admin.php?page=ledgerport
+          - listitem [ref=e25]:
+            - link "Connection" [ref=e26] [cursor=pointer]:
+              - /url: admin.php?page=ledgerport-connection
+          - listitem
+          - listitem [ref=e27]:
+            - link "Mappings" [ref=e28] [cursor=pointer]:
+              - /url: admin.php?page=ledgerport-mappings
+          - listitem [ref=e29]:
+            - link "Manual Sync" [ref=e30] [cursor=pointer]:
+              - /url: admin.php?page=ledgerport-push
+          - listitem [ref=e31]:
+            - link "Audit Logs" [ref=e32] [cursor=pointer]:
+              - /url: admin.php?page=ledgerport-logs
+          - listitem [ref=e33]:
+            - link "Sync Config" [ref=e34] [cursor=pointer]:
+              - /url: admin.php?page=ledgerport-settings
+          - listitem [ref=e35]:
+            - link "Debug Logs" [ref=e36] [cursor=pointer]:
+              - /url: admin.php?page=ledgerport-debug-logs
+      - listitem [ref=e37]
+      - listitem [ref=e39]:
+        - link "Posts" [ref=e40] [cursor=pointer]:
+          - /url: edit.php
+          - generic [ref=e41]: 
+          - generic [ref=e42]: Posts
+        - list [ref=e43]:
+          - listitem [ref=e44]:
+            - link "All Posts" [ref=e45] [cursor=pointer]:
+              - /url: edit.php
+          - listitem [ref=e46]:
+            - link "Add Post" [ref=e47] [cursor=pointer]:
+              - /url: post-new.php
+          - listitem [ref=e48]:
+            - link "Categories" [ref=e49] [cursor=pointer]:
+              - /url: edit-tags.php?taxonomy=category
+          - listitem [ref=e50]:
+            - link "Tags" [ref=e51] [cursor=pointer]:
+              - /url: edit-tags.php?taxonomy=post_tag
+      - listitem [ref=e52]:
+        - link "Media" [ref=e53] [cursor=pointer]:
+          - /url: upload.php
+          - generic [ref=e54]: 
+          - generic [ref=e55]: Media
+        - list [ref=e56]:
+          - listitem [ref=e57]:
+            - link "Library" [ref=e58] [cursor=pointer]:
+              - /url: upload.php
+          - listitem [ref=e59]:
+            - link "Add Media File" [ref=e60] [cursor=pointer]:
+              - /url: media-new.php
+      - listitem [ref=e61]:
+        - link "Pages" [ref=e62] [cursor=pointer]:
+          - /url: edit.php?post_type=page
+          - generic [ref=e63]: 
+          - generic [ref=e64]: Pages
+        - list [ref=e65]:
+          - listitem [ref=e66]:
+            - link "All Pages" [ref=e67] [cursor=pointer]:
+              - /url: edit.php?post_type=page
+          - listitem [ref=e68]:
+            - link "Add Page" [ref=e69] [cursor=pointer]:
+              - /url: post-new.php?post_type=page
+      - listitem [ref=e70]:
+        - link "Comments 16 Comments in moderation" [ref=e71] [cursor=pointer]:
+          - /url: edit-comments.php
+          - generic [ref=e72]: 
+          - generic [ref=e73]:
+            - text: Comments
+            - generic [ref=e74]:
+              - text: "16"
+              - generic [ref=e75]: 16 Comments in moderation
+      - listitem [ref=e76]:
+        - link "Shortcoder" [ref=e77] [cursor=pointer]:
+          - /url: edit.php?post_type=shortcoder
+          - generic [ref=e78]: 
+          - generic [ref=e79]: Shortcoder
+        - list [ref=e80]:
+          - listitem [ref=e81]:
+            - link "All Shortcodes" [ref=e82] [cursor=pointer]:
+              - /url: edit.php?post_type=shortcoder
+          - listitem [ref=e83]:
+            - link "Create shortcode" [ref=e84] [cursor=pointer]:
+              - /url: post-new.php?post_type=shortcoder
+          - listitem [ref=e85]:
+            - link "Tags" [ref=e86] [cursor=pointer]:
+              - /url: edit-tags.php?taxonomy=sc_tag&post_type=shortcoder
+          - listitem [ref=e87]:
+            - link "Settings" [ref=e88] [cursor=pointer]:
+              - /url: edit.php?post_type=shortcoder&page=settings
+          - listitem [ref=e89]:
+            - link "Upgrade to PRO" [ref=e90] [cursor=pointer]:
+              - /url: https://www.aakashweb.com/wordpress-plugins/shortcoder/?utm_source=admin&utm_medium=menu&utm_campaign=sc-pro#pro
+      - listitem [ref=e91]
+      - listitem [ref=e93]:
+        - link "WooCommerce" [ref=e94] [cursor=pointer]:
+          - /url: admin.php?page=wc-admin
+          - generic [ref=e96]: WooCommerce
+        - list [ref=e97]:
+          - listitem [ref=e98]:
+            - link "Home" [ref=e99] [cursor=pointer]:
+              - /url: admin.php?page=wc-admin
+          - listitem [ref=e100]:
+            - link "Orders 112" [ref=e101] [cursor=pointer]:
+              - /url: admin.php?page=wc-orders
+              - text: Orders
+              - generic [ref=e102]: "112"
+          - listitem [ref=e103]:
+            - link "Customers" [ref=e104] [cursor=pointer]:
+              - /url: admin.php?page=wc-admin&path=/customers
+          - listitem [ref=e105]:
+            - link "Coupons" [ref=e106] [cursor=pointer]:
+              - /url: admin.php?page=coupons-moved
+          - listitem [ref=e107]:
+            - link "Reports" [ref=e108] [cursor=pointer]:
+              - /url: admin.php?page=wc-reports
+          - listitem [ref=e109]:
+            - link "Settings" [ref=e110] [cursor=pointer]:
+              - /url: admin.php?page=wc-settings
+          - listitem [ref=e111]:
+            - link "Status" [ref=e112] [cursor=pointer]:
+              - /url: admin.php?page=wc-status
+          - listitem [ref=e113]:
+            - link "Extensions 1" [ref=e114] [cursor=pointer]:
+              - /url: admin.php?page=wc-admin&path=/extensions
+              - text: Extensions
+              - generic [ref=e115]: "1"
+      - listitem [ref=e116]:
+        - link "Products" [ref=e117] [cursor=pointer]:
+          - /url: edit.php?post_type=product
+          - generic [ref=e118]: 
+          - generic [ref=e119]: Products
+        - list [ref=e120]:
+          - listitem [ref=e121]:
+            - link "All Products" [ref=e122] [cursor=pointer]:
+              - /url: edit.php?post_type=product
+          - listitem [ref=e123]:
+            - link "Add new product" [ref=e124] [cursor=pointer]:
+              - /url: post-new.php?post_type=product
+          - listitem [ref=e125]:
+            - link "Brands" [ref=e126] [cursor=pointer]:
+              - /url: edit-tags.php?taxonomy=product_brand&post_type=product
+          - listitem [ref=e127]:
+            - link "Categories" [ref=e128] [cursor=pointer]:
+              - /url: edit-tags.php?taxonomy=product_cat&post_type=product
+          - listitem [ref=e129]:
+            - link "Tags" [ref=e130] [cursor=pointer]:
+              - /url: edit-tags.php?taxonomy=product_tag&post_type=product
+          - listitem [ref=e131]:
+            - link "Attributes" [ref=e132] [cursor=pointer]:
+              - /url: edit.php?post_type=product&page=product_attributes
+          - listitem [ref=e133]:
+            - link "Reviews" [ref=e134] [cursor=pointer]:
+              - /url: edit.php?post_type=product&page=product-reviews
+      - listitem [ref=e135]:
+        - link "Payments" [ref=e136] [cursor=pointer]:
+          - /url: admin.php?page=wc-settings&tab=checkout&from=PAYMENTS_MENU_ITEM
+          - generic [ref=e138]: Payments
+      - listitem [ref=e139]:
+        - link "Analytics" [ref=e140] [cursor=pointer]:
+          - /url: admin.php?page=wc-admin&path=/analytics/overview
+          - generic [ref=e141]: 
+          - generic [ref=e142]: Analytics
+        - list [ref=e143]:
+          - listitem [ref=e144]:
+            - link "Overview" [ref=e145] [cursor=pointer]:
+              - /url: admin.php?page=wc-admin&path=/analytics/overview
+          - listitem [ref=e146]:
+            - link "Products" [ref=e147] [cursor=pointer]:
+              - /url: admin.php?page=wc-admin&path=/analytics/products
+          - listitem [ref=e148]:
+            - link "Revenue" [ref=e149] [cursor=pointer]:
+              - /url: admin.php?page=wc-admin&path=/analytics/revenue
+          - listitem [ref=e150]:
+            - link "Orders" [ref=e151] [cursor=pointer]:
+              - /url: admin.php?page=wc-admin&path=/analytics/orders
+          - listitem [ref=e152]:
+            - link "Variations" [ref=e153] [cursor=pointer]:
+              - /url: admin.php?page=wc-admin&path=/analytics/variations
+          - listitem [ref=e154]:
+            - link "Categories" [ref=e155] [cursor=pointer]:
+              - /url: admin.php?page=wc-admin&path=/analytics/categories
+          - listitem [ref=e156]:
+            - link "Coupons" [ref=e157] [cursor=pointer]:
+              - /url: admin.php?page=wc-admin&path=/analytics/coupons
+          - listitem [ref=e158]:
+            - link "Taxes" [ref=e159] [cursor=pointer]:
+              - /url: admin.php?page=wc-admin&path=/analytics/taxes
+          - listitem [ref=e160]:
+            - link "Downloads" [ref=e161] [cursor=pointer]:
+              - /url: admin.php?page=wc-admin&path=/analytics/downloads
+          - listitem [ref=e162]:
+            - link "Stock" [ref=e163] [cursor=pointer]:
+              - /url: admin.php?page=wc-admin&path=/analytics/stock
+          - listitem [ref=e164]:
+            - link "Settings" [ref=e165] [cursor=pointer]:
+              - /url: admin.php?page=wc-admin&path=/analytics/settings
+      - listitem [ref=e166]:
+        - link "Marketing" [ref=e167] [cursor=pointer]:
+          - /url: admin.php?page=wc-admin&path=/marketing
+          - generic [ref=e168]: 
+          - generic [ref=e169]: Marketing
+        - list [ref=e170]:
+          - listitem [ref=e171]:
+            - link "Overview" [ref=e172] [cursor=pointer]:
+              - /url: admin.php?page=wc-admin&path=/marketing
+          - listitem [ref=e173]:
+            - link "Coupons" [ref=e174] [cursor=pointer]:
+              - /url: edit.php?post_type=shop_coupon
+      - listitem [ref=e175]:
+        - link "PushEngage" [ref=e176] [cursor=pointer]:
+          - /url: admin.php?page=pushengage#
+          - generic [ref=e178]: PushEngage
+        - list [ref=e179]:
+          - listitem [ref=e180]:
+            - link "Dashboard" [ref=e181] [cursor=pointer]:
+              - /url: admin.php?page=pushengage#
+          - listitem [ref=e182]:
+            - link "Push Broadcasts" [ref=e183] [cursor=pointer]:
+              - /url: admin.php?page=pushengage#/campaigns/notifications
+          - listitem [ref=e184]:
+            - link "Drip" [ref=e185] [cursor=pointer]:
+              - /url: admin.php?page=pushengage#/automation/drip
+          - listitem [ref=e186]:
+            - link "Triggers" [ref=e187] [cursor=pointer]:
+              - /url: admin.php?page=pushengage#/campaigns/triggers
+          - listitem [ref=e188]:
+            - link "Design" [ref=e189] [cursor=pointer]:
+              - /url: admin.php?page=pushengage#/design
+          - listitem [ref=e190]:
+            - link "Audience" [ref=e191] [cursor=pointer]:
+              - /url: admin.php?page=pushengage#/audience/subscribers
+          - listitem [ref=e192]:
+            - link "Analytics" [ref=e193] [cursor=pointer]:
+              - /url: admin.php?page=pushengage#/analytics
+          - listitem [ref=e194]:
+            - link "Settings" [ref=e195] [cursor=pointer]:
+              - /url: admin.php?page=pushengage#/settings/site-details
+          - listitem [ref=e196]:
+            - link "WooCommerce" [ref=e197] [cursor=pointer]:
+              - /url: admin.php?page=pushengage#/woocommerce/automation
+          - listitem [ref=e198]:
+            - link "WhatsApp" [ref=e199] [cursor=pointer]:
+              - /url: admin.php?page=pushengage#/whatsapp/automation
+          - listitem [ref=e200]:
+            - link "Chat Widgets NEW!" [ref=e201] [cursor=pointer]:
+              - /url: admin.php?page=pushengage#/chat-widgets
+          - listitem [ref=e202]:
+            - link "About Us" [ref=e203] [cursor=pointer]:
+              - /url: admin.php?page=pushengage#/about-us
+      - listitem [ref=e204]
+      - listitem [ref=e206]:
+        - link "Appearance" [ref=e207] [cursor=pointer]:
+          - /url: themes.php
+          - generic [ref=e208]: 
+          - generic [ref=e209]: Appearance
+        - list [ref=e210]:
+          - listitem [ref=e211]:
+            - link "Themes" [ref=e212] [cursor=pointer]:
+              - /url: themes.php
+          - listitem [ref=e213]:
+            - link "Design" [ref=e214] [cursor=pointer]:
+              - /url: site-editor.php
+          - listitem [ref=e215]:
+            - link "Customize" [ref=e216] [cursor=pointer]:
+              - /url: customize.php?return=%2Fwp-admin%2Fadmin.php%3Fpage%3Dledgerport
+          - listitem [ref=e217]:
+            - link "Widgets" [ref=e218] [cursor=pointer]:
+              - /url: widgets.php
+          - listitem [ref=e219]:
+            - link "Menus" [ref=e220] [cursor=pointer]:
+              - /url: nav-menus.php
+          - listitem [ref=e221]:
+            - link "Header" [ref=e222] [cursor=pointer]:
+              - /url: customize.php?return=%2Fwp-admin%2Fadmin.php%3Fpage%3Dledgerport&autofocus%5Bcontrol%5D=header_image
+          - listitem [ref=e223]:
+            - link "Background" [ref=e224] [cursor=pointer]:
+              - /url: customize.php?return=%2Fwp-admin%2Fadmin.php%3Fpage%3Dledgerport&autofocus%5Bcontrol%5D=background_image
+          - listitem [ref=e225]:
+            - link "Storefront" [ref=e226] [cursor=pointer]:
+              - /url: themes.php?page=storefront-welcome
+          - listitem
+          - listitem
+          - listitem [ref=e227]:
+            - link "Theme File Editor" [ref=e228] [cursor=pointer]:
+              - /url: theme-editor.php
+      - listitem [ref=e229]:
+        - link "Plugins 1" [ref=e230] [cursor=pointer]:
+          - /url: plugins.php
+          - generic [ref=e231]: 
+          - generic [ref=e232]:
+            - text: Plugins
+            - generic [ref=e233]: "1"
+        - list [ref=e234]:
+          - listitem [ref=e235]:
+            - link "Installed Plugins" [ref=e236] [cursor=pointer]:
+              - /url: plugins.php
+          - listitem [ref=e237]:
+            - link "Add Plugin" [ref=e238] [cursor=pointer]:
+              - /url: plugin-install.php
+          - listitem [ref=e239]:
+            - link "Plugin File Editor" [ref=e240] [cursor=pointer]:
+              - /url: plugin-editor.php
+      - listitem [ref=e241]:
+        - link "Users" [ref=e242] [cursor=pointer]:
+          - /url: users.php
+          - generic [ref=e243]: 
+          - generic [ref=e244]: Users
+        - list [ref=e245]:
+          - listitem [ref=e246]:
+            - link "All Users" [ref=e247] [cursor=pointer]:
+              - /url: users.php
+          - listitem [ref=e248]:
+            - link "Add User" [ref=e249] [cursor=pointer]:
+              - /url: user-new.php
+          - listitem [ref=e250]:
+            - link "Profile" [ref=e251] [cursor=pointer]:
+              - /url: profile.php
+      - listitem [ref=e252]:
+        - link "Tools" [ref=e253] [cursor=pointer]:
+          - /url: tools.php
+          - generic [ref=e254]: 
+          - generic [ref=e255]: Tools
+        - list [ref=e256]:
+          - listitem [ref=e257]:
+            - link "Available Tools" [ref=e258] [cursor=pointer]:
+              - /url: tools.php
+          - listitem [ref=e259]:
+            - link "Import" [ref=e260] [cursor=pointer]:
+              - /url: import.php
+          - listitem [ref=e261]:
+            - link "Export" [ref=e262] [cursor=pointer]:
+              - /url: export.php
+          - listitem [ref=e263]:
+            - link "Site Health 1" [ref=e264] [cursor=pointer]:
+              - /url: site-health.php
+              - text: Site Health
+              - generic [ref=e265]: "1"
+          - listitem [ref=e266]:
+            - link "Export Personal Data" [ref=e267] [cursor=pointer]:
+              - /url: export-personal-data.php
+          - listitem [ref=e268]:
+            - link "Erase Personal Data" [ref=e269] [cursor=pointer]:
+              - /url: erase-personal-data.php
+          - listitem [ref=e270]:
+            - link "Smooth Generator" [ref=e271] [cursor=pointer]:
+              - /url: tools.php?page=smoothgenerator
+          - listitem [ref=e272]:
+            - link "Scheduled Actions" [ref=e273] [cursor=pointer]:
+              - /url: tools.php?page=action-scheduler
+      - listitem [ref=e274]:
+        - link "Settings" [ref=e275] [cursor=pointer]:
+          - /url: options-general.php
+          - generic [ref=e276]: 
+          - generic [ref=e277]: Settings
+        - list [ref=e278]:
+          - listitem [ref=e279]:
+            - link "General" [ref=e280] [cursor=pointer]:
+              - /url: options-general.php
+          - listitem [ref=e281]:
+            - link "Writing" [ref=e282] [cursor=pointer]:
+              - /url: options-writing.php
+          - listitem [ref=e283]:
+            - link "Reading" [ref=e284] [cursor=pointer]:
+              - /url: options-reading.php
+          - listitem [ref=e285]:
+            - link "Discussion" [ref=e286] [cursor=pointer]:
+              - /url: options-discussion.php
+          - listitem [ref=e287]:
+            - link "Media" [ref=e288] [cursor=pointer]:
+              - /url: options-media.php
+          - listitem [ref=e289]:
+            - link "Permalinks" [ref=e290] [cursor=pointer]:
+              - /url: options-permalink.php
+          - listitem [ref=e291]:
+            - link "Privacy" [ref=e292] [cursor=pointer]:
+              - /url: options-privacy.php
+      - listitem [ref=e293]:
+        - link "Code Snippets" [ref=e294] [cursor=pointer]:
+          - /url: admin.php?page=wpcode
+          - generic [ref=e296]: Code Snippets
+        - list [ref=e297]:
+          - listitem [ref=e298]:
+            - link "Code Snippets" [ref=e299] [cursor=pointer]:
+              - /url: admin.php?page=wpcode
+          - listitem [ref=e300]:
+            - link "+ Add Snippet" [ref=e301] [cursor=pointer]:
+              - /url: admin.php?page=wpcode-snippet-manager
+          - listitem [ref=e302]:
+            - link "Header & Footer" [ref=e303] [cursor=pointer]:
+              - /url: admin.php?page=wpcode-headers-footers
+          - listitem [ref=e304]:
+            - link "Conversion Pixels" [ref=e305] [cursor=pointer]:
+              - /url: admin.php?page=wpcode-pixel
+          - listitem [ref=e306]:
+            - link "Library" [ref=e307] [cursor=pointer]:
+              - /url: admin.php?page=wpcode-library
+          - listitem [ref=e308]:
+            - link "File Editor" [ref=e309] [cursor=pointer]:
+              - /url: admin.php?page=wpcode-file-editor
+          - listitem [ref=e310]:
+            - link "Search & Replace" [ref=e311] [cursor=pointer]:
+              - /url: admin.php?page=wpcode-search-replace
+          - listitem [ref=e312]:
+            - link "Secure Backups" [ref=e313] [cursor=pointer]:
+              - /url: admin.php?page=wpcode-duplicator
+          - listitem [ref=e314]:
+            - link "Tools" [ref=e315] [cursor=pointer]:
+              - /url: admin.php?page=wpcode-tools
+          - listitem [ref=e316]:
+            - link "Settings" [ref=e317] [cursor=pointer]:
+              - /url: admin.php?page=wpcode-settings
+      - listitem [ref=e318]:
+        - button "Collapse Main menu" [expanded] [ref=e319] [cursor=pointer]:
+          - generic [ref=e321]: Collapse Menu
+  - generic [ref=e322]:
+    - generic [ref=e323]:
+      - navigation "Toolbar":
+        - menu:
+          - group [ref=e324]:
+            - menuitem "About WordPress" [ref=e325] [cursor=pointer]:
+              - generic [ref=e327]: About WordPress
+          - group [ref=e328]:
+            - menuitem "QA Staging" [ref=e329] [cursor=pointer]
+          - group [ref=e330]:
+            - menuitem "Live" [ref=e331] [cursor=pointer]
+          - group [ref=e332]:
+            - menuitem "WP Adminer" [ref=e333] [cursor=pointer]
+          - group [ref=e334]:
+            - menuitem "1 update available" [ref=e335] [cursor=pointer]:
+              - generic [ref=e337]: "1"
+              - generic [ref=e338]: 1 update available
+          - group [ref=e339]:
+            - menuitem "16 Comments in moderation" [ref=e340] [cursor=pointer]:
+              - generic [ref=e342]: "16"
+              - generic [ref=e343]: 16 Comments in moderation
+          - group [ref=e344]:
+            - menuitem "New" [ref=e345] [cursor=pointer]:
+              - generic [ref=e347]: New
+          - group [ref=e348]:
+            - menuitem "WPCode" [ref=e349] [cursor=pointer]
+          - group [ref=e350]:
+            - menuitem "PushEngage" [ref=e351] [cursor=pointer]: PushEngage
+        - menu [ref=e353]:
+          - group [ref=e354]:
+            - menuitem "Howdy, Kulvinder Singh" [ref=e355] [cursor=pointer]
+    - main [ref=e356]:
+      - generic [ref=e359]:
+        - generic [ref=e360]:
+          - generic [ref=e362]:
+            - link "LedgerPort" [ref=e363] [cursor=pointer]:
+              - /url: https://qastaging.pushengage.com/wp-admin/admin.php?page=ledgerport
+              - img "LedgerPort" [ref=e364]:
+                - generic [ref=e369]: LedgerPort
+            - generic [ref=e370]:
+              - button "Notifications" [ref=e371] [cursor=pointer]:
+                - img
+              - button "Switch to dark mode" [ref=e372] [cursor=pointer]:
+                - img
+              - button "Help" [ref=e373] [cursor=pointer]:
+                - img
+          - generic [ref=e376]:
+            - heading "Overview" [level=1] [ref=e377]
+            - paragraph [ref=e378]: Sync health, recent activity, and what needs your attention.
+          - generic [ref=e380]:
+            - generic [ref=e381]:
+              - generic [ref=e382]:
+                - text: Syncing
+                - strong [ref=e383]: your store
+              - generic [ref=e384]:
+                - combobox [ref=e385] [cursor=pointer]:
+                  - generic [ref=e386]: Last 7 days
+                  - img [ref=e387]
+                - button "May 11, 2026 – May 17, 2026" [ref=e389] [cursor=pointer]:
+                  - img
+                  - generic [ref=e390]: May 11, 2026 – May 17, 2026
+            - generic [ref=e391]:
+              - generic [ref=e394]: "Last sync: Hasn't run yet"
+              - button "Sync now" [ref=e395] [cursor=pointer]:
+                - img
+                - text: Sync now
+        - region "Notifications alt+T"
+  - contentinfo [ref=e410]:
+    - paragraph [ref=e411]:
+      - generic [ref=e413]:
+        - text: Thank you for creating with
+        - link "WordPress" [ref=e414] [cursor=pointer]:
+          - /url: https://wordpress.org/
+        - text: .
+    - paragraph [ref=e415]: Version 6.9.4
+```
+
+# Test source
+
+```ts
+  1  | import { Page } from '@playwright/test';
+  2  | 
+  3  | export const TEST_CONFIG = {
+  4  |   baseURL:  'https://qastaging.pushengage.com',
+  5  |   username: 'kgosal',
+  6  |   password: '!letmeIn@123=',
+  7  |   loginURL: '/wp-login.php',
+  8  | };
+  9  | 
+  10 | /**
+  11 |  * Correct WP admin page slugs (verified against live staging site).
+  12 |  * The slugs for Manual Sync, Audit Logs, and Sync Config differ from the
+  13 |  * human-readable names shown in the sidebar.
+  14 |  */
+  15 | export const PLUGIN_PAGES = {
+  16 |   dashboard:  '/wp-admin/admin.php?page=ledgerport',
+  17 |   connection: '/wp-admin/admin.php?page=ledgerport-connection',
+  18 |   mappings:   '/wp-admin/admin.php?page=ledgerport-mappings',
+  19 |   manualSync: '/wp-admin/admin.php?page=ledgerport-push',
+  20 |   auditLogs:  '/wp-admin/admin.php?page=ledgerport-logs',
+  21 |   syncConfig: '/wp-admin/admin.php?page=ledgerport-settings',
+  22 |   debugLogs:  '/wp-admin/admin.php?page=ledgerport-debug-logs',
+  23 | };
+  24 | 
+  25 | export async function loginAsAdmin(page: Page): Promise<void> {
+  26 |   // Navigate directly to wp-admin — session cookies (from storageState) mean
+  27 |   // WP serves the admin page directly; if the session is invalid it redirects to login.
+  28 |   await page.goto(TEST_CONFIG.baseURL + '/wp-admin/');
+  29 |   await page.waitForLoadState('domcontentloaded');
+  30 | 
+  31 |   if (!page.url().includes('wp-login')) return; // already authenticated
+  32 | 
+  33 |   // Manual fallback: fill credentials and submit
+  34 |   await page.waitForSelector('#user_login', { state: 'visible', timeout: 10000 });
+  35 |   await page.locator('#user_login').click({ clickCount: 3 });
+  36 |   await page.waitForTimeout(200);
+  37 |   await page.locator('#user_login').fill(TEST_CONFIG.username);
+  38 | 
+  39 |   // Verify username was entered correctly
+  40 |   const usernameVal = await page.locator('#user_login').inputValue();
+  41 |   if (usernameVal !== TEST_CONFIG.username) {
+  42 |     await page.locator('#user_login').click({ clickCount: 3 });
+  43 |     await page.locator('#user_login').fill(TEST_CONFIG.username);
+  44 |   }
+  45 | 
+  46 |   await page.locator('#user_pass').click({ clickCount: 3 });
+  47 |   await page.locator('#user_pass').fill(TEST_CONFIG.password);
+  48 |   await page.locator('#wp-submit').click();
+  49 |   await page.waitForURL(/wp-admin/, { timeout: 30000 });
+  50 | }
+  51 | 
+  52 | export async function goToPluginPage(page: Page, path: string): Promise<void> {
+> 53 |   await page.goto(TEST_CONFIG.baseURL + path);
+     |              ^ TimeoutError: page.goto: Timeout 30000ms exceeded.
+  54 |   await page.waitForLoadState('domcontentloaded');
+  55 |   await page.waitForTimeout(1500);
+  56 | }
+  57 | 
+```
