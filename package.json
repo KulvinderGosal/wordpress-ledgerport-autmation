@@ -11,6 +11,7 @@
     "test:mappings": "npx playwright test --config=playwright.config.ts mappings",
     "test:restricted": "npx playwright test --config=playwright.config.ts restricted-pages",
     "test:debug-logs": "npx playwright test --config=playwright.config.ts debug-logs",
+    "test:fixes": "npx playwright test --config=playwright.config.ts regression-fixes",
     "test:headed": "npx playwright test --config=playwright.config.ts --headed",
     "test:ui": "npx playwright test --config=playwright.config.ts --ui",
     "report": "npx playwright show-report"
