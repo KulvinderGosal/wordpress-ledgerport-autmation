@@ -1,22 +1,33 @@
 {
-  "name": "ledgerport-playwright-tests",
+  "name": "ledgerport-wp-plugin",
   "version": "1.0.0",
-  "description": "Playwright E2E regression tests for the LedgerPort WordPress plugin",
+  "private": true,
+  "description": "Independent Playwright E2E/regression suite for the LedgerPort WordPress (WooCommerce) plugin",
   "scripts": {
-    "test": "npx playwright test --config=playwright.config.ts",
-    "test:regression": "npx playwright test --config=playwright.config.ts regression",
-    "test:dashboard": "npx playwright test --config=playwright.config.ts dashboard",
-    "test:disconnected": "npx playwright test --config=playwright.config.ts disconnected-state",
-    "test:connection": "npx playwright test --config=playwright.config.ts connection",
-    "test:mappings": "npx playwright test --config=playwright.config.ts mappings",
-    "test:restricted": "npx playwright test --config=playwright.config.ts restricted-pages",
-    "test:debug-logs": "npx playwright test --config=playwright.config.ts debug-logs",
-    "test:fixes": "npx playwright test --config=playwright.config.ts regression-fixes",
-    "test:headed": "npx playwright test --config=playwright.config.ts --headed",
-    "test:ui": "npx playwright test --config=playwright.config.ts --ui",
-    "report": "npx playwright show-report"
+    "test": "playwright test",
+    "test:demo": "playwright test tests/demo/ --reporter=list",
+    "test:demo:headed": "playwright test tests/demo/ --headed --reporter=list",
+    "test:smoke": "playwright test tests/smoke/",
+    "test:dashboard": "playwright test tests/01-dashboard/",
+    "test:connection": "playwright test tests/02-connection/",
+    "test:mappings": "playwright test tests/03-mappings/",
+    "test:manual-sync": "playwright test tests/04-manual-sync/",
+    "test:audit-logs": "playwright test tests/05-audit-logs/",
+    "test:sync-config": "playwright test tests/06-sync-config/",
+    "test:debug-logs": "playwright test tests/07-debug-logs/",
+    "test:e2e": "playwright test tests/08-e2e/",
+    "test:a11y": "playwright test tests/09-a11y/",
+    "test:regression": "playwright test tests/01-dashboard/ tests/02-connection/ tests/03-mappings/ tests/04-manual-sync/ tests/05-audit-logs/ tests/06-sync-config/ tests/07-debug-logs/",
+    "test:legacy": "playwright test tests/regression.spec.ts tests/connected-regression.spec.ts tests/disconnected-state.spec.ts",
+    "test:headed": "playwright test --headed",
+    "test:ui": "playwright test --ui",
+    "report": "playwright show-report"
   },
   "devDependencies": {
-    "@playwright/test": "^1.44.0"
+    "@axe-core/playwright": "^4.11.3",
+    "@playwright/test": "^1.44.0",
+    "better-sqlite3": "^12.10.0",
+    "dotenv": "^17.4.2",
+    "typescript": "^5.4.0"
   }
 }

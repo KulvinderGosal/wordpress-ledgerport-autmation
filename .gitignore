@@ -1,0 +1,25 @@
+# Dependencies
+node_modules/
+
+# Auth / secrets — never commit session cookies or credentials
+.auth/
+.env
+
+# Playwright artifacts
+test-results/
+playwright-report/
+coverage/
+results.db
+
+# TypeScript build output
+dist/
+
+# macOS
+.DS_Store
+
+# PDF/Office files generated during demos (too large for git)
+*.pdf
+*.pptx
+
+# Logs
+*.log
