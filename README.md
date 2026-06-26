@@ -21,6 +21,12 @@ Playwright test automation suite for the **LedgerPort** WordPress plugin, which 
 
 ---
 
+## Documentation
+
+- **[User Guide](docs/USER_GUIDE.md)** — full setup walkthrough, session auth, all commands, gotchas, troubleshooting, and how to add new tests
+
+---
+
 ## Quick Start
 
 ```bash
