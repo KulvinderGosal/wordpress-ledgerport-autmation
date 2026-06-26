@@ -9,14 +9,15 @@ export const TEST_CONFIG = {
 
 const BASE = 'https://qastaging.pushengage.com';
 
-// Verified working slugs on staging (confirmed via test runs 2026-06-01)
-// ledgerport-settings / ledgerport-push / ledgerport-logs return WP Error on staging
+// Verified working slugs on staging (re-confirmed 2026-06-26 via live browser inspection)
+// IMPORTANT: auditLogs slug is "ledgerport-logs" — NOT "ledgerport-audit-logs"
+// Using the wrong slug returns WordPress "not allowed" error.
 export const CORRECT_PAGES = {
   dashboard:  `${BASE}/wp-admin/admin.php?page=ledgerport`,
   connection: `${BASE}/wp-admin/admin.php?page=ledgerport-connection`,
   mappings:   `${BASE}/wp-admin/admin.php?page=ledgerport-mappings`,
   manualSync: `${BASE}/wp-admin/admin.php?page=ledgerport-manual-sync`,
-  auditLogs:  `${BASE}/wp-admin/admin.php?page=ledgerport-audit-logs`,
+  auditLogs:  `${BASE}/wp-admin/admin.php?page=ledgerport-logs`,
   syncConfig: `${BASE}/wp-admin/admin.php?page=ledgerport-sync-config`,
   debugLogs:  `${BASE}/wp-admin/admin.php?page=ledgerport-debug-logs`,
 };
@@ -27,7 +28,7 @@ export const PLUGIN_PAGES = {
   connection: `${BASE}/wp-admin/admin.php?page=ledgerport-connection`,
   mappings:   `${BASE}/wp-admin/admin.php?page=ledgerport-mappings`,
   manualSync: `${BASE}/wp-admin/admin.php?page=ledgerport-manual-sync`,
-  auditLogs:  `${BASE}/wp-admin/admin.php?page=ledgerport-audit-logs`,
+  auditLogs:  `${BASE}/wp-admin/admin.php?page=ledgerport-logs`,
   syncConfig: `${BASE}/wp-admin/admin.php?page=ledgerport-sync-config`,
   debugLogs:  `${BASE}/wp-admin/admin.php?page=ledgerport-debug-logs`,
 };
