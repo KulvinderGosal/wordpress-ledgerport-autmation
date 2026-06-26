@@ -21,6 +21,65 @@ Playwright test automation suite for the **LedgerPort** WordPress plugin, which 
 
 ---
 
+## Claude Code Skill
+
+This repo ships with a **Claude Code skill** (`qa-ledgerport-wp-plugin`) that lets you run and extend these tests directly from the Claude Code CLI using natural language.
+
+### What the skill does
+
+- Knows the project layout, auth setup, and all run commands
+- Guides you through fixing failures and adding new tests
+- Keeps context about staging credentials and the Turnstile workaround
+- References `docs/test-info.md` and `coverage/component-test-sheet.csv` automatically
+
+### Install the skill
+
+**Option A — from this repo (recommended)**
+
+The skill file is already inside this repo at `.claude/skills/qa-ledgerport-wp-plugin/`. Claude Code picks it up automatically when you open the project:
+
+```bash
+cd ledgerport-wp-plugin
+claude   # skill is loaded automatically
+```
+
+**Option B — add to your global Claude Code skills**
+
+Copy the skill to your global skills folder so it's available from any directory:
+
+```bash
+cp -r .claude/skills/qa-ledgerport-wp-plugin ~/.claude/skills/
+```
+
+### Using the skill in Claude Code
+
+Once loaded, type `/qa-ledgerport-wp-plugin` in Claude Code to activate it, or just describe what you want:
+
+```
+/qa-ledgerport-wp-plugin
+
+# Example prompts after activation:
+"Run the dashboard tests and tell me what failed"
+"Add a test for the Payments tab in Manual Sync"
+"The audit logs test is failing — help me debug it"
+"Generate a new smoke test for the Connection page"
+"Show me the full regression results"
+```
+
+### Skill behaviour
+
+When activated, the skill automatically:
+
+1. Changes into the `ledgerport-wp-plugin/` directory
+2. Checks that `.env` is configured and `.auth/admin.json` exists
+3. Reads `docs/test-info.md` for current coverage context
+4. Runs the appropriate `npm run test:*` command
+5. Reports results and suggests fixes for any failures
+
+> **Note:** This skill is distinct from `qa-pushengage-wp-plugin`. Always activate it from inside the `ledgerport-wp-plugin/` folder.
+
+---
+
 ## Documentation
 
 - **[User Guide](docs/USER_GUIDE.md)** — full setup walkthrough, session auth, all commands, gotchas, troubleshooting, and how to add new tests
